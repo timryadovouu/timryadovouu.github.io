@@ -1,0 +1,357 @@
+/* ── Переменные темы ─────────────────────────────────────────────
+   Значения по умолчанию = светлая тема. Хук useTheme ставит на <html>
+   атрибут data-theme="dark", и переменные переопределяются ниже.      */
+:root {
+  --bg: #ffffff;
+  --bg-soft: #f4f4f5;
+  --text: #18181b;
+  --text-soft: #52525b;
+  --accent: #2563eb;
+  --border: #e4e4e7;
+
+  --max-width: 720px;
+  --gap: 1.25rem;
+
+  color-scheme: light;
+}
+
+:root[data-theme='dark'] {
+  --bg: #0e0e11;
+  --bg-soft: #1a1a1f;
+  --text: #f4f4f5;
+  --text-soft: #a1a1aa;
+  --accent: #60a5fa;
+  --border: #2a2a30;
+
+  color-scheme: dark;
+}
+
+/* ── База ────────────────────────────────────────────────────────── */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+/* ── Контейнер и секции ──────────────────────────────────────────── */
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.section {
+  padding: 3rem 0;
+  border-top: 1px solid var(--border);
+}
+
+.section-title {
+  font-size: 1.35rem;
+  margin: 0 0 1.25rem;
+}
+
+/* ── Hero ────────────────────────────────────────────────────────── */
+.hero {
+  padding: 5rem 0 3rem;
+  text-align: center;
+}
+
+.hero-name {
+  font-size: clamp(2rem, 6vw, 3rem);
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+.hero-tagline {
+  font-size: 1.25rem;
+  color: var(--text-soft);
+  margin: 0.5rem 0 0.25rem;
+}
+
+.hero-location {
+  color: var(--text-soft);
+  margin: 0 0 1.5rem;
+}
+
+.hero-links {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ── About ───────────────────────────────────────────────────────── */
+.about-text {
+  color: var(--text-soft);
+  margin: 0 0 1rem;
+}
+
+/* ── Projects ────────────────────────────────────────────────────── */
+.project-grid {
+  display: grid;
+  gap: var(--gap);
+}
+
+.project-card {
+  background: var(--bg-soft);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.25rem 1.5rem;
+}
+
+.project-title {
+  margin: 0 0 0.5rem;
+  font-size: 1.1rem;
+}
+
+.project-desc {
+  margin: 0 0 1rem;
+  color: var(--text-soft);
+}
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  list-style: none;
+  padding: 0;
+  margin: 0 0 0.75rem;
+}
+
+.project-tags li {
+  font-size: 0.8rem;
+  padding: 0.15rem 0.6rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  color: var(--text-soft);
+}
+
+.project-link {
+  font-weight: 500;
+}
+
+/* ── Resume ──────────────────────────────────────────────────────── */
+.resume-buttons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.resume-btn {
+  padding: 0.6rem 1.2rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--bg-soft);
+  color: var(--text);
+  font-weight: 500;
+}
+.resume-btn:hover {
+  border-color: var(--accent);
+  text-decoration: none;
+}
+
+/* ── Contact ─────────────────────────────────────────────────────── */
+.contact-line {
+  margin: 0 0 1rem;
+}
+
+.contact-socials {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* ── Footer ──────────────────────────────────────────────────────── */
+.footer {
+  text-align: center;
+  color: var(--text-soft);
+  padding: 2rem 1.5rem 3rem;
+  font-size: 0.9rem;
+}
+
+/* ── Experience ──────────────────────────────────────────────────── */
+.exp-list {
+  display: grid;
+  gap: 1.75rem;
+}
+
+.exp-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+}
+
+.exp-role {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.exp-period {
+  color: var(--text-soft);
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+
+.exp-place {
+  margin: 0.15rem 0 0.5rem;
+  color: var(--text-soft);
+  font-size: 0.9rem;
+}
+
+.exp-bullets {
+  margin: 0;
+  padding-left: 1.1rem;
+  color: var(--text-soft);
+}
+
+.exp-bullets li {
+  margin: 0.3rem 0;
+}
+
+/* ── Education ───────────────────────────────────────────────────── */
+.edu-list {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.edu-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+}
+
+.edu-org {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.edu-period {
+  color: var(--text-soft);
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+
+.edu-degree {
+  margin: 0.25rem 0 0;
+}
+
+.edu-place {
+  margin: 0.15rem 0 0;
+  color: var(--text-soft);
+  font-size: 0.9rem;
+}
+
+/* ── Hobbies ─────────────────────────────────────────────────────── */
+.hobby-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.hobby-chip {
+  padding: 0.4rem 0.9rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--bg-soft);
+  font-size: 0.9rem;
+}
+
+/* ── Тумблеры (язык + тема) ──────────────────────────────────────── */
+.toggles {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  z-index: 10;
+}
+
+/* ── Слайдер-переключатель (язык и тема) ──────────────────────────
+   Общие стили. Геометрия (64×28, бегунок 30) синхронизирована с
+   константами в src/components/Slider.tsx.                          */
+.slider {
+  position: relative;
+  width: 64px;
+  height: 28px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--bg-soft);
+  cursor: pointer;
+  user-select: none;
+  touch-action: none; /* чтобы перетаскивание работало и на тач-экранах */
+}
+.slider:hover {
+  border-color: var(--accent);
+}
+.slider:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* подписи лежат ПОВЕРХ бегунка (pointer-events: none, чтобы не мешали) */
+.slider-label {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--text-soft);
+  opacity: 0.55; /* неактивная сторона приглушена (в т.ч. эмодзи темы) */
+  pointer-events: none;
+  z-index: 2;
+}
+.slider-label.left {
+  left: 8px;
+}
+.slider-label.right {
+  right: 8px;
+}
+.slider-label.active {
+  opacity: 1;
+  color: var(--bg); /* контрастный текст на цветном бегунке, адаптивно к теме */
+}
+
+.slider-knob {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 30px;
+  height: 22px;
+  border-radius: 999px;
+  background: var(--accent);
+  z-index: 1;
+  transition: transform 0.18s ease;
+}
+.slider-knob.dragging {
+  transition: none; /* во время перетаскивания следуем за пальцем без задержки */
+}
