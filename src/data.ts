@@ -101,7 +101,7 @@ export const content: Record<Lang, SiteContent> = {
         role: "Data Analyst",
         org: "Sovcombank",
         place: "Saint Petersburg",
-        period: "2025 — present",
+        period: "July 2025 — present",
         bullets: [
           "Build data pipelines that automate processing and transformation of data before analysis.",
           "Extract data from databases, warehouses, data marts and other sources.",
@@ -122,12 +122,18 @@ export const content: Record<Lang, SiteContent> = {
       {
         org: "ITMO University",
         place: "Saint Petersburg",
-        degree:
-          "Bachelor — Design and Technology of Electronic Devices · GPA 4.38",
+        degree: "Bachelor — Design and Technology of Electronic Devices",
         period: "2021 — 2026",
       },
     ],
     projects: [
+      {
+        title: "mac-notch",
+        description:
+          "Native macOS utility that turns the MacBook camera notch into an interactive control hub (à la Dynamic Island): timer, clipboard buffer, media controls, to-do list and screen-time tracking. No dependencies.",
+        tags: ["Swift", "SwiftUI", "macOS"],
+        link: "https://github.com/timryadovouu/mac-notch",
+      },
       {
         title: "Why colliding blocks compute Pi",
         description:
@@ -177,7 +183,7 @@ export const content: Record<Lang, SiteContent> = {
         role: "Аналитик данных",
         org: "Совкомбанк",
         place: "Санкт-Петербург",
-        period: "2025 — н.в.",
+        period: "Июль 2025 — н.в.",
         bullets: [
           "Формирование конвейеров (пайплайнов) для автоматизации обработки и трансформации данных перед анализом.",
           "Выгрузка данных из баз данных, хранилищ, витрин и других источников.",
@@ -192,19 +198,25 @@ export const content: Record<Lang, SiteContent> = {
       {
         org: "СПбГЭТУ «ЛЭТИ»",
         place: "Санкт-Петербург",
-        degree:
-          "Магистратура — «Системы и технологии технического зрения» (Передовая инженерная школа)",
+        degree: "Магистратура — «Системы и технологии технического зрения»",
         period: "2026 — н.в.",
       },
       {
         org: "Университет ИТМО",
         place: "Санкт-Петербург",
         degree:
-          "Бакалавриат — «Конструирование и технология электронных средств» · GPA 4.38",
+          "Бакалавриат — «Конструирование и технология электронных средств»",
         period: "2021 — 2026",
       },
     ],
     projects: [
+      {
+        title: "mac-notch",
+        description:
+          "Нативная утилита для macOS, превращающая вырез камеры MacBook в интерактивный хаб в духе Dynamic Island: таймер, буфер обмена, управление музыкой, to-do и учёт экранного времени. Без зависимостей.",
+        tags: ["Swift", "SwiftUI", "macOS"],
+        link: "https://github.com/timryadovouu/mac-notch",
+      },
       {
         title: "Почему сталкивающиеся блоки образуют число Пи",
         description:
