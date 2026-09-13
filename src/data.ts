@@ -128,11 +128,11 @@ export const content: Record<Lang, SiteContent> = {
     ],
     projects: [
       {
-        title: "mac-notch",
+        title: "cape",
         description:
-          "Native macOS utility that turns the MacBook camera notch into an interactive control hub (à la Dynamic Island): timer, clipboard buffer, media controls, to-do list and screen-time tracking. No dependencies.",
+          "Native macOS utility that turns the space around the camera notch into an interactive control hub (à la Dynamic Island): timer, clipboard buffer, media controls, to-do list, screen-time tracking and on-device voice dictation.",
         tags: ["Swift", "SwiftUI", "macOS"],
-        link: "https://github.com/timryadovouu/mac-notch",
+        link: "https://github.com/timryadovouu/cape",
       },
       {
         title: "Why colliding blocks compute Pi",
@@ -211,11 +211,11 @@ export const content: Record<Lang, SiteContent> = {
     ],
     projects: [
       {
-        title: "mac-notch",
+        title: "cape",
         description:
-          "Нативная утилита для macOS, превращающая вырез камеры MacBook в интерактивный хаб в духе Dynamic Island: таймер, буфер обмена, управление музыкой, to-do и учёт экранного времени. Без зависимостей.",
+          "Нативная утилита для macOS, превращающая пространство вокруг выреза камеры в интерактивный хаб в духе Dynamic Island: таймер, буфер обмена, управление музыкой, to-do, учёт экранного времени и голосовой ввод на устройстве.",
         tags: ["Swift", "SwiftUI", "macOS"],
-        link: "https://github.com/timryadovouu/mac-notch",
+        link: "https://github.com/timryadovouu/cape",
       },
       {
         title: "Почему сталкивающиеся блоки образуют число Пи",

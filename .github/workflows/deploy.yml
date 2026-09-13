@@ -22,6 +22,19 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      # Компиляция резюме (.tex → PDF) в полном TeX Live (внутри Docker)
+      - name: Compile resumes (LaTeX)
+        uses: xu-cheng/latex-action@v3
+        with:
+          working_directory: resume
+          root_file: |
+            resume-en.tex
+            resume-ru.tex
+
+      # Кладём свежие PDF в public/, откуда Vite упакует их в dist
+      - name: Copy resume PDFs into public/
+        run: cp resume/resume-en.pdf resume/resume-ru.pdf public/
+
       - uses: actions/setup-node@v4
         with:
           node-version: 22

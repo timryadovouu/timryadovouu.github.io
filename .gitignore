@@ -28,3 +28,7 @@ dist-ssr
 
 # Local Claude Code dev-preview config
 .claude/launch.json
+
+# Resume PDFs are generated from resume/*.tex by CI (see deploy.yml)
+public/resume-en.pdf
+public/resume-ru.pdf
