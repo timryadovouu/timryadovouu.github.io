@@ -1,0 +1,58 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch: # позволяет запускать деплой вручную из вкладки Actions
+
+# Права, нужные для публикации на Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Одновременно только один деплой; новый пуш отменяет предыдущий
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # Компиляция резюме (.tex → PDF) в полном TeX Live (внутри Docker)
+      - name: Compile resumes (LaTeX)
+        uses: xu-cheng/latex-action@v3
+        with:
+          working_directory: resume
+          root_file: |
+            resume-en.tex
+            resume-ru.tex
+
+      # Кладём свежие PDF в public/, откуда Vite упакует их в dist
+      - name: Copy resume PDFs into public/
+        run: cp resume/resume-en.pdf resume/resume-ru.pdf public/
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+      - run: npm run build
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
