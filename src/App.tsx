@@ -6,8 +6,7 @@ import { Projects } from './components/Projects'
 import { Hobbies } from './components/Hobbies'
 import { ResumeSection } from './components/ResumeSection'
 import { Contact } from './components/Contact'
-import { ThemeSlider } from './components/ThemeSlider'
-import { LangSlider } from './components/LangSlider'
+import { Nav } from './components/Nav'
 import { LanguageProvider } from './i18n'
 import { profile } from './data'
 
@@ -17,10 +16,7 @@ import { profile } from './data'
 export default function App() {
   return (
     <LanguageProvider>
-      <div className="toggles">
-        <LangSlider />
-        <ThemeSlider />
-      </div>
+      <Nav />
 
       <main className="container">
         <Hero />

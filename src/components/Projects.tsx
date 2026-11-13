@@ -1,5 +1,6 @@
 import { useLang } from '../i18n'
 import { Section } from './Section'
+import { GitHubIcon, GlobeIcon } from './icons'
 
 export function Projects() {
   const { t } = useLang()
@@ -17,11 +18,22 @@ export function Projects() {
               ))}
             </ul>
 
-            {/* ссылка показывается только если она есть — условный рендеринг */}
-            {p.link && (
-              <a className="project-link" href={p.link} target="_blank" rel="noreferrer">
-                {t.ui.open}
-              </a>
+            {/* ссылки показываются только если они есть — условный рендеринг */}
+            {(p.link || p.demo) && (
+              <div className="icon-links">
+                {p.link && (
+                  <a className="icon-link" href={p.link} target="_blank" rel="noreferrer">
+                    <GitHubIcon />
+                    {t.ui.code}
+                  </a>
+                )}
+                {p.demo && (
+                  <a className="icon-link" href={p.demo} target="_blank" rel="noreferrer">
+                    <GlobeIcon />
+                    {t.ui.demo}
+                  </a>
+                )}
+              </div>
             )}
           </article>
         ))}

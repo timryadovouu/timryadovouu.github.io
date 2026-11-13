@@ -21,7 +21,7 @@ interface SliderProps {
 
 // Переиспользуемый слайдер-переключатель на два положения.
 // Меняет значение по клику и по перетаскиванию бегунка.
-// Используется и для языка, и для темы.
+// Сейчас используется для переключения языка.
 export function Slider({ left, right, side, onChange, ariaLabel }: SliderProps) {
   const [dragX, setDragX] = useState<number | null>(null)
   const draggingRef = useRef(false)

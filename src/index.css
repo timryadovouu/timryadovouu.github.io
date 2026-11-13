@@ -1,27 +1,15 @@
 /* ── Переменные темы ─────────────────────────────────────────────
-   Значения по умолчанию = светлая тема. Хук useTheme ставит на <html>
-   атрибут data-theme="dark", и переменные переопределяются ниже.      */
+   Сайт всегда в тёмной теме.                                        */
 :root {
-  --bg: #ffffff;
-  --bg-soft: #f4f4f5;
-  --text: #18181b;
-  --text-soft: #52525b;
-  --accent: #2563eb;
-  --border: #e4e4e7;
-
-  --max-width: 720px;
-  --gap: 1.25rem;
-
-  color-scheme: light;
-}
-
-:root[data-theme='dark'] {
   --bg: #0e0e11;
   --bg-soft: #1a1a1f;
   --text: #f4f4f5;
   --text-soft: #a1a1aa;
   --accent: #60a5fa;
   --border: #2a2a30;
+
+  --max-width: 720px;
+  --gap: 1.25rem;
 
   color-scheme: dark;
 }
@@ -62,6 +50,7 @@ a:hover {
 .section {
   padding: 3rem 0;
   border-top: 1px solid var(--border);
+  scroll-margin-top: 2rem; /* чтобы заголовок не прятался под панелью */
 }
 
 .section-title {
@@ -90,13 +79,6 @@ a:hover {
 .hero-location {
   color: var(--text-soft);
   margin: 0 0 1.5rem;
-}
-
-.hero-links {
-  display: flex;
-  gap: 1rem;
-  justify-content: center;
-  flex-wrap: wrap;
 }
 
 /* ── About ───────────────────────────────────────────────────────── */
@@ -145,8 +127,36 @@ a:hover {
   color: var(--text-soft);
 }
 
-.project-link {
+/* ── Кнопки-ярлыки с иконкой (проекты, контакты) ────────────────── */
+.icon-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+/* кнопка-ярлык: иконка + подпись */
+.icon-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.3rem 0.8rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--bg);
+  color: var(--text);
+  font-size: 0.875rem;
   font-weight: 500;
+  transition: border-color 0.15s, color 0.15s;
+}
+.icon-link:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  text-decoration: none;
+}
+.icon-link svg {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
 }
 
 /* ── Resume ──────────────────────────────────────────────────────── */
@@ -167,20 +177,6 @@ a:hover {
 .resume-btn:hover {
   border-color: var(--accent);
   text-decoration: none;
-}
-
-/* ── Contact ─────────────────────────────────────────────────────── */
-.contact-line {
-  margin: 0 0 1rem;
-}
-
-.contact-socials {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
 }
 
 /* ── Footer ──────────────────────────────────────────────────────── */
@@ -283,18 +279,74 @@ a:hover {
   font-size: 0.9rem;
 }
 
-/* ── Тумблеры (язык + тема) ──────────────────────────────────────── */
-.toggles {
+/* ── Верхняя панель навигации ──────────────────────────────────── */
+.nav {
   position: fixed;
-  top: 1rem;
-  right: 1rem;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
+  top: 0;
+  left: 0;
+  right: 0;
   z-index: 10;
+  background: rgba(14, 14, 17, 0.75); /* --bg с прозрачностью */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
 }
 
-/* ── Слайдер-переключатель (язык и тема) ──────────────────────────
+.nav-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.nav-brand {
+  color: var(--text);
+  font-weight: 700;
+  font-size: 1.05rem;
+  letter-spacing: -0.02em;
+}
+.nav-brand:hover {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.1rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links a {
+  color: var(--text-soft);
+  font-size: 0.875rem;
+  transition: color 0.15s;
+}
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--text);
+  text-decoration: none;
+}
+
+/* на узких экранах ссылки на разделы прячем — остаются инициалы и язык */
+@media (max-width: 640px) {
+  .nav-links {
+    display: none;
+  }
+}
+
+/* ── Слайдер-переключатель (язык) ──────────────────────────
    Общие стили. Геометрия (64×28, бегунок 30) синхронизирована с
    константами в src/components/Slider.tsx.                          */
 .slider {

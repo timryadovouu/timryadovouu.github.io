@@ -12,7 +12,8 @@ export interface Project {
   title: string;
   description: string;
   tags: string[];
-  link?: string; // ссылка на репозиторий/демо (необязательно)
+  link?: string; // ссылка на репозиторий (необязательно)
+  demo?: string; // ссылка на работающее демо (необязательно)
 }
 
 export interface Education {
@@ -33,6 +34,7 @@ export interface Job {
 export interface Social {
   label: string;
   href: string;
+  icon: "github" | "telegram"; // какую иконку показать в «Контактах»
 }
 
 export interface Resume {
@@ -49,8 +51,8 @@ export interface UIStrings {
   resume: string;
   hobbies: string;
   contact: string;
-  open: string;
-  email: string;
+  code: string; // подпись кнопки-ссылки на репозиторий
+  demo: string; // подпись кнопки-ссылки на демо
 }
 
 // весь переводимый контент одной секции сайта
@@ -73,15 +75,15 @@ export const profile = {
 };
 
 export const socials: Social[] = [
-  { label: "GitHub", href: "https://github.com/timryadovouu" },
-  { label: "Telegram", href: "https://t.me/urokodaki_sakonji" },
+  { label: "GitHub", href: "https://github.com/timryadovouu", icon: "github" },
+  { label: "Telegram", href: "https://t.me/urokodaki_sakonji", icon: "telegram" },
   // { label: 'LinkedIn', href: 'https://linkedin.com/in/...' },
 ];
 
 // PDF кладутся в public/ (resume-en.pdf, resume-ru.pdf)
 export const resumes: Resume[] = [
-  { label: "🇬🇧 Resume (EN)", href: "/resume-en.pdf" },
-  { label: "🇷🇺 Резюме (RU)", href: "/resume-ru.pdf" },
+  { label: "Resume (EN)", href: "/resume-en.pdf" },
+  { label: "Резюме (RU)", href: "/resume-ru.pdf" },
 ];
 
 // ── Двуязычный контент ───────────────────────────────────────────
@@ -126,11 +128,26 @@ export const content: Record<Lang, SiteContent> = {
     ],
     projects: [
       {
-        title: "cape",
+        title: "Cape",
         description:
           "Native macOS utility that turns the space around the camera notch into an interactive control hub (à la Dynamic Island): timer, clipboard buffer, media controls, to-do list, screen-time tracking and on-device voice dictation.",
         tags: ["Swift", "SwiftUI", "macOS"],
         link: "https://github.com/timryadovouu/cape",
+      },
+      {
+        title: "Fedstat",
+        description:
+          "Unofficial Python client for fedstat.ru (EMISS, Russia's federal statistics portal), published on PyPI: searches the indicator catalog, downloads data with filters and returns a normalized pandas DataFrame.",
+        tags: ["Python", "pandas", "PyPI"],
+        link: "https://github.com/timryadovouu/fedstat",
+      },
+      {
+        title: "Fencing Protocols",
+        description:
+          "Offline PWA for running fencing tournaments: pools with a combined ranking, direct-elimination bracket, bout screen with timer, cards and withdrawals per FIE rules; export to PDF/CSV/JSON.",
+        tags: ["TypeScript", "React", "PWA"],
+        link: "https://github.com/timryadovouu/fencing-app",
+        demo: "https://fencing-app.timtrue18.workers.dev/",
       },
       {
         title: "Why colliding blocks compute Pi",
@@ -142,7 +159,7 @@ export const content: Record<Lang, SiteContent> = {
         title: "Qudits in high-dimensional quantum spaces",
         description:
           "Talk at an ITMO quantum seminar on qudits and higher-dimensional quantum systems.",
-        tags: ["ITMO", "Talk", "Quantum"],
+        tags: ["ITMO", "Talk", "Physics"],
       },
     ],
     hobbies: [
@@ -162,8 +179,8 @@ export const content: Record<Lang, SiteContent> = {
       resume: "Resume",
       hobbies: "Hobbies",
       contact: "Contact",
-      open: "Open →",
-      email: "Email",
+      code: "GitHub",
+      demo: "Demo",
     },
   },
 
@@ -208,11 +225,26 @@ export const content: Record<Lang, SiteContent> = {
     ],
     projects: [
       {
-        title: "cape",
+        title: "Cape",
         description:
           "Нативная утилита для macOS, превращающая пространство вокруг выреза камеры в интерактивный хаб в духе Dynamic Island: таймер, буфер обмена, управление музыкой, to-do, учёт экранного времени и голосовой ввод на устройстве.",
         tags: ["Swift", "SwiftUI", "macOS"],
         link: "https://github.com/timryadovouu/cape",
+      },
+      {
+        title: "Fedstat",
+        description:
+          "Неофициальный Python-клиент к fedstat.ru (ЕМИСС), опубликован на PyPI: поиск показателей по каталогу, скачивание данных с фильтрами и выдача нормализованного pandas.DataFrame.",
+        tags: ["Python", "pandas", "PyPI"],
+        link: "https://github.com/timryadovouu/fedstat",
+      },
+      {
+        title: "Fencing Protocols",
+        description:
+          "Офлайн-PWA для ведения фехтовальных турниров: пульки с общим рейтингом, олимпийская сетка, окно боя с таймером, карточками и снятием по правилам FIE; экспорт в PDF/CSV/JSON.",
+        tags: ["TypeScript", "React", "PWA"],
+        link: "https://github.com/timryadovouu/fencing-app",
+        demo: "https://fencing-app.timtrue18.workers.dev/",
       },
       {
         title: "Почему сталкивающиеся блоки образуют число Пи",
@@ -224,7 +256,7 @@ export const content: Record<Lang, SiteContent> = {
         title: "Кудиты в квантовых пространствах высокой размерности",
         description:
           "Выступление на квантовом семинаре ИТМО о кудитах и квантовых системах высокой размерности.",
-        tags: ["ИТМО", "Доклад", "Квантовые системы"],
+        tags: ["ИТМО", "Доклад", "Физика"],
       },
     ],
     hobbies: [
@@ -244,8 +276,8 @@ export const content: Record<Lang, SiteContent> = {
       resume: "Резюме",
       hobbies: "Хобби",
       contact: "Контакты",
-      open: "Открыть →",
-      email: "Email",
+      code: "GitHub",
+      demo: "Демо",
     },
   },
 };
