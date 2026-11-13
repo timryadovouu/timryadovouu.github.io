@@ -101,7 +101,7 @@ export const content: Record<Lang, SiteContent> = {
         role: "Data Analyst",
         org: "Sovcombank",
         place: "Saint Petersburg",
-        period: "July 2025 — present",
+        period: "September 2025 — present",
         bullets: [
           "Build data pipelines that automate processing and transformation of data before analysis.",
           "Extract data from databases, warehouses, data marts and other sources.",
@@ -197,7 +197,7 @@ export const content: Record<Lang, SiteContent> = {
         role: "Аналитик данных",
         org: "Совкомбанк",
         place: "Санкт-Петербург",
-        period: "Июль 2025 — н.в.",
+        period: "Сентябрь 2025 — н.в.",
         bullets: [
           "Формирование конвейеров (пайплайнов) для автоматизации обработки и трансформации данных перед анализом.",
           "Выгрузка данных из баз данных, хранилищ, витрин и других источников.",
